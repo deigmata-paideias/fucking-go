@@ -1,0 +1,1 @@
+# Fucking Go Grammar
