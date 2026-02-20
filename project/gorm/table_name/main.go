@@ -39,6 +39,8 @@ import (
 //
 // 2026/02/15 22:39:59 /Users/shown/workspace/golang/open_source/fucking-go/project/gorm/table_name/main.go:50
 // [0.510ms] [rows:1] INSERT INTO `data_resources` (`name`,`desc`) VALUES ("Alice-Resource","This is Alice's resource") RETURNING `id`
+//
+// 解决方式是实现 TableName 方法，指定表名，或者使用 db.SingularTable(true) 来禁用表名复数转义
 
 type User struct {
 	ID   uint

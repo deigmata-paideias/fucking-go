@@ -12,7 +12,7 @@ func main() {
 		Flag     any `json:"notEBook"`
 	}{"", false}
 
-	// 下面的代码会输出什么？
+	// 上面的代码会输出什么？
 	//  	答案是 {true false}
 	// 为什么？预期中应该是 A 和 true。
 	//
