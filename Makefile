@@ -12,12 +12,13 @@ lint-fix: ## 运行 golangci-lint 并自动修复
 		(cd $$dir && golangci-lint run --fix --timeout=5m *.go) || true; \
 	done
 
-install-tools:
+install-tools: ## 安装 golangci-lint
 	@if command -v golangci-lint >/dev/null 2>&1; then \
 		echo "golangci-lint is already installed"; \
 		golangci-lint --version; \
 	else \
 		echo "Installing golangci-lint..."; \
-	@curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.10.1
-	@golangci-lint --version
-	@echo "golangci-lint installed successfully"
+		curl -sSfL https://golangci-lint.run/install.sh | sh -s -- -b $$(go env GOPATH)/bin v2.10.1; \
+		golangci-lint --version; \
+		echo "golangci-lint installed successfully"; \
+	fi
