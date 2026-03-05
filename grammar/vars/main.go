@@ -25,4 +25,30 @@ func main() {
 		}
 		fmt.Println()
 	}
+
+	// go 中访问 map 不存在的 key 不会报错，返回值为类型的零值
+	x := map[string]string{"one": "a", "two": "", "three": "c"}
+
+	if v := x["two"]; v == "" { //incorrect
+		fmt.Println("no entry")
+	}
+
+	// 正确写法
+	if _, ok := x["two"]; !ok {
+		fmt.Println("no entry")
+	}
+
+	// 字符串变量是不可变的
+	s := "hello"
+	// s[0] = "H"
+	// invalid operation: s[0] (cannot assign to s[0])
+	fmt.Println(s)
+
+	// 如果需要改变，需要转为 byte 在修改
+	s = "hello"
+	sByte := []byte(s)
+	sByte[0] = 'H'
+	s = string(sByte)
+	fmt.Println(s)
+
 }
