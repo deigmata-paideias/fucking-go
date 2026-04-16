@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package fucking_go.grpc.example.v1;
+
+option go_package = "github.com/deigmata-paideias/fucking-go/proto;hellopb";
+
+// HelloRequest 演示 oneof 在 Go protobuf 代码中的生成形态。
+// 同一时刻只能设置 text 或 code 中的一个字段。
+message HelloRequest {
+  string name = 1;
+
+  oneof payload {
+    string text = 2;
+    int64 code = 3;
+  }
+}
